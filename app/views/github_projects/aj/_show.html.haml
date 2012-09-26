@@ -20,7 +20,7 @@
 
   .page-nav
     - if !last_sha.blank?
-      .next
+      .prev
         %a{:href => "/github_projects/#{github_project.id}?first_sha=#{all_commits[0]['sha']}"} 上一页
 
     - if !next_commits.blank?

@@ -15,12 +15,26 @@ class UsersController < ApplicationController
 
 
   def github
+  end
+
+  def aj_github
     github_user = GithubApiMethods.get_github_user(@user)
-    @user.refresh_github_user(github_user) 
+    @user.refresh_github_user(github_user)
+
+    render :partial=>'/users/aj/github_user', :locals=>{
+      :user => @user
+    }
   end
 
   def gists
+  end
+
+  def aj_gists
     @gists = GithubApiMethods.get_user_gists(@user)
+
+    render :partial=>'/users/aj/gists', :locals=>{
+      :gists => @gists
+    }
   end
 
   def issues
